@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVS List - Member Checker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results.success {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+
+        .results.not-found {
+            background-color: #fff3e0;
+            border: 2px solid #ff9800;
+        }
+
+        .result-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #555;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .not-included {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #ff9800;
+            padding: 20px;
+        }
+
+        .error {
+            color: #d32f2f;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #1565c0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .result-item {
+                flex-direction: column;
+            }
+
+            .result-value {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SVS List</h1>
+        <p class="subtitle">Member Checker</p>
+
+        <div class="info-box">
+            💡 Enter your Account ID below to check if you're in the top 200 members.
+        </div>
+
+        <div class="form-group">
+            <label for="accountId">Account ID:</label>
+            <input type="text" id="accountId" placeholder="Enter your Account ID" autocomplete="off">
+            <div class="error" id="error"></div>
+        </div>
+
+        <button onclick="searchMember()">Search</button>
+
+        <div class="results" id="results">
+            <div class="result-title" id="resultTitle"></div>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // MEMBER DATA - Edit this array to add your top 200 members
+        const membersList = [
+            { id: "ID001", name: "John Smith", points: 5000, rank: 1 },
+            { id: "ID002", name: "Jane Doe", points: 4850, rank: 2 },
+            { id: "ID003", name: "Mike Johnson", points: 4700, rank: 3 },
+            { id: "ID004", name: "Sarah Williams", points: 4650, rank: 4 },
+            { id: "ID005", name: "David Brown", points: 4500, rank: 5 },
+            // Add more members here...
+        ];
+
+        function searchMember() {
+            const accountId = document.getElementById("accountId").value.trim();
+            const errorDiv = document.getElementById("error");
+            const resultsDiv = document.getElementById("results");
+
+            // Clear previous error
+            errorDiv.textContent = "";
+
+            // Validate input
+            if (!accountId) {
+                errorDiv.textContent = "Please enter an Account ID";
+                resultsDiv.classList.remove("show");
+                return;
+            }
+
+            // Search for member
+            const member = membersList.find(m => m.id.toLowerCase() === accountId.toLowerCase());
+
+            if (member) {
+                // Member found
+                resultsDiv.classList.add("show", "success");
+                resultsDiv.classList.remove("not-found");
+                
+                document.getElementById("resultTitle").textContent = "✓ Included in Top 200";
+                document.getElementById("resultContent").innerHTML = `
+                    <div class="result-item">
+                        <span class="result-label">Account ID:</span>
+                        <span class="result-value">${member.id}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Name:</span>
+                        <span class="result-value">${member.name}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Points:</span>
+                        <span class="result-value">${member.points.toLocaleString()}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Rank:</span>
+                        <span class="result-value">#${member.rank}</span>
+                    </div>
+                `;
+            } else {
+                // Member not found
+                resultsDiv.classList.add("show", "not-found");
+                resultsDiv.classList.remove("success");
+                
+                document.getElementById("resultTitle").textContent = "✗ Not Included";
+                document.getElementById("resultContent").innerHTML = `
+                    <div class="not-included">
+                        Not Included in Top 200
+                    </div>
+                `;
+            }
+        }
+
+        // Allow Enter key to search
+        document.getElementById("accountId").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchMember();
+            }
+        });
+    </script>
+</body>
+</html>
