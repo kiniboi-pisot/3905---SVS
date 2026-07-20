@@ -211,17 +211,16 @@
     </div>
 
     <script>
-        // MEMBER DATA - Top 200 Members
         const membersList = [
             { id: "668069828", name: "[SUN]UNCLE", points: 183852596, rank: 1 },
             { id: "661789614", name: "[TMP]Leya", points: 74248414, rank: 5 },
-            { id: "668843697", name: "[SUN]●YouFeélMë●", points: 68156835, rank: 8 },
-            { id: "669167032", name: "[TMP]『LuffyHARDMike』", points: 67189166, rank: 10 },
-            { id: "672730683", name: "[TMP]尺丨几D乇爪爪ㄚ尺", points: 55542036, rank: 13 },
+            { id: "668843697", name: "[SUN]YouFeelMe", points: 68156835, rank: 8 },
+            { id: "669167032", name: "[TMP]LuffyHARDMike", points: 67189166, rank: 10 },
+            { id: "672730683", name: "[TMP]RINDEMMY", points: 55542036, rank: 13 },
             { id: "674732923", name: "[SUN]Non Nontawat", points: 43467285, rank: 20 },
             { id: "675184671", name: "[SUN]Lili", points: 42561166, rank: 22 },
-            { id: "660642088", name: "[TMP]Thomas Müller", points: 41737059, rank: 23 },
-            { id: "668578696", name: "[GAS]หารัฐ", points: 39361922, rank: 25 },
+            { id: "660642088", name: "[TMP]Thomas Muller", points: 41737059, rank: 23 },
+            { id: "668578696", name: "[GAS]Haruch", points: 39361922, rank: 25 },
             { id: "668021737", name: "[TMP]RUI3Y", points: 38583208, rank: 27 },
             { id: "670444261", name: "[GAS]Mayvada Kedavra", points: 35194594, rank: 32 },
             { id: "669219947", name: "[TMP]Knockout", points: 34518775, rank: 35 },
@@ -230,34 +229,34 @@
             { id: "674074686", name: "[SUN]Permana", points: 32845902, rank: 41 },
             { id: "667200884", name: "[GAS]Vaden", points: 29361836, rank: 47 },
             { id: "668319140", name: "[TMP]obtra", points: 28239103, rank: 50 },
-            { id: "674945802", name: "[TMP]ʚ Auriana ɞ", points: 27552386, rank: 51 },
-            { id: "672255877", name: "[SUN]Gåmåkïçhï", points: 27346671, rank: 52 },
+            { id: "674945802", name: "[TMP]Auriana", points: 27552386, rank: 51 },
+            { id: "672255877", name: "[SUN]Gamakichi", points: 27346671, rank: 52 },
             { id: "672890808", name: "[GAS]KDM", points: 27276726, rank: 54 },
             { id: "670334626", name: "[TMP]NOE", points: 26745940, rank: 55 },
             { id: "674158404", name: "[GAS]ayylamao", points: 26484354, rank: 56 },
             { id: "697694240", name: "[GAS]Kenn", points: 26382024, rank: 57 },
-            { id: "667006181", name: "[INA]Sharrn'ella", points: 26331797, rank: 58 },
+            { id: "667006181", name: "[INA]Sharnnella", points: 26331797, rank: 58 },
             { id: "662398627", name: "[SUN]Makk", points: 26194530, rank: 61 },
             { id: "667692266", name: "lord2509569475", points: 25863345, rank: 64 },
-            { id: "669592713", name: "[TMP]!3@sher_C@r1os", points: 25646139, rank: 65 },
+            { id: "669592713", name: "[TMP]Basher Carlos", points: 25646139, rank: 65 },
             { id: "673644766", name: "[WFG]seroi", points: 24471160, rank: 71 },
-            { id: "674894156", name: "[SUN] TAWAN", points: 24314551, rank: 72 },
-            { id: "723544337", name: "[SNF]Bby Trøß§", points: 23554035, rank: 75 },
+            { id: "674894156", name: "[SUN]TAWAN", points: 24314551, rank: 72 },
+            { id: "723544337", name: "[SNF]Bby Tross", points: 23554035, rank: 75 },
             { id: "675217908", name: "[TSM]Santi", points: 23517402, rank: 76 },
-            { id: "668679664", name: "[SUN]●■●7_SIN●■●", points: 23343724, rank: 79 },
+            { id: "668679664", name: "[SUN]7 SIN", points: 23343724, rank: 79 },
             { id: "673693709", name: "[WFG]tatuy", points: 23322985, rank: 80 },
             { id: "667219786", name: "[TMP]shikimaru", points: 23253099, rank: 82 },
-            { id: "661745895", name: "[SUN]NIRVANA~", points: 23011363, rank: 84 },
-            { id: "730634234", name: "[GUE]mr_Lonely", points: 22909894, rank: 86 },
-            { id: "672619178", name: "[TMP]Park Ji Sung 박지성", points: 22803613, rank: 87 },
+            { id: "661745895", name: "[SUN]NIRVANA", points: 23011363, rank: 84 },
+            { id: "730634234", name: "[GUE]mr Lonely", points: 22909894, rank: 86 },
+            { id: "672619178", name: "[TMP]Park Ji Sung", points: 22803613, rank: 87 },
             { id: "667645537", name: "[INA]Hatake", points: 22801543, rank: 88 },
             { id: "673404358", name: "[WFG]Z A Z A", points: 22651301, rank: 89 },
             { id: "720827715", name: "[TMP]shelinthesea", points: 22344801, rank: 91 },
-            { id: "672371773", name: "[GAS]มู่", points: 22342101, rank: 92 },
+            { id: "672371773", name: "[GAS]Moo", points: 22342101, rank: 92 },
             { id: "670153070", name: "[TMP]Lyra Violeta", points: 21311414, rank: 98 },
             { id: "675184998", name: "[GAS]WALMOND", points: 21186702, rank: 101 },
             { id: "659183714", name: "[GAS]zekyu", points: 21108965, rank: 102 },
-            { id: "672466595", name: "[GUE]ooKIT 『T』", points: 20341643, rank: 108 },
+            { id: "672466595", name: "[GUE]ooKIT", points: 20341643, rank: 108 },
             { id: "667643234", name: "[WFG]Bee", points: 20222720, rank: 111 },
             { id: "660084737", name: "[SUN]KIPPI", points: 19930641, rank: 114 },
             { id: "726638304", name: "[SUN]wulong cha", points: 18983009, rank: 118 },
@@ -265,42 +264,42 @@
             { id: "659454716", name: "[SUN]whoop", points: 18852568, rank: 120 },
             { id: "671518843", name: "[TSM]Lobster", points: 18245025, rank: 125 },
             { id: "672777779", name: "[GAS]iAmSoSorry", points: 18020826, rank: 126 },
-            { id: "670297026", name: "[GAS]ريالSAN", points: 18008419, rank: 127 },
+            { id: "670297026", name: "[GAS]SAN", points: 18008419, rank: 127 },
             { id: "675174835", name: "[SUN]Looknut", points: 17750423, rank: 128 },
-            { id: "672683566", name: "[SUN]Bëll222", points: 17741595, rank: 129 },
+            { id: "672683566", name: "[SUN]Bell222", points: 17741595, rank: 129 },
             { id: "671990815", name: "[TMP]Waesuhi", points: 17664341, rank: 130 },
             { id: "667925864", name: "[SUN]Uzumaki Nafito", points: 17612542, rank: 131 },
             { id: "705278954", name: "[WFG]NAGA HiTAM", points: 17343553, rank: 133 },
             { id: "658758406", name: "[SUN]Mikasaa", points: 17269054, rank: 134 },
             { id: "674815259", name: "[INA]zee", points: 16844245, rank: 137 },
             { id: "668399867", name: "[ASH]SCOOBY", points: 16766419, rank: 140 },
-            { id: "671547557", name: "[SUN]Blα¢к Qυєєη", points: 16680832, rank: 141 },
+            { id: "671547557", name: "[SUN]Black Queen", points: 16680832, rank: 141 },
             { id: "672471457", name: "[GAS]dadang", points: 16480828, rank: 143 },
             { id: "674307375", name: "[GAS]radit", points: 16432754, rank: 144 },
             { id: "674137443", name: "[TMP]NEMO", points: 16114624, rank: 148 },
-            { id: "671503756", name: "[TMP]Pa M@rcell", points: 16023295, rank: 149 },
+            { id: "671503756", name: "[TMP]Pa Marcell", points: 16023295, rank: 149 },
             { id: "712738524", name: "[INA]jmbot", points: 16019732, rank: 150 },
-            { id: "667757023", name: "[SUN]_Temari Rin'ﾂ", points: 15967371, rank: 152 },
+            { id: "667757023", name: "[SUN]Temari Rin", points: 15967371, rank: 152 },
             { id: "674338655", name: "[GAS]BocahKampung", points: 15694378, rank: 156 },
             { id: "659694685", name: "[SUN]kenma", points: 15463115, rank: 161 },
             { id: "702164894", name: "[SUN]Loretta", points: 15405551, rank: 162 },
             { id: "662402022", name: "[SUN]Gaara", points: 15309530, rank: 166 },
-            { id: "668414833", name: "[ASH]@VictoriaBeckham", points: 15276513, rank: 168 },
+            { id: "668414833", name: "[ASH]VictoriaBeckham", points: 15276513, rank: 168 },
             { id: "672405988", name: "[SUN]Jiannnn", points: 15088530, rank: 170 },
             { id: "673890616", name: "[SUN]JAVALORD", points: 14996011, rank: 171 },
             { id: "659642602", name: "[SUN]Sawit", points: 14629242, rank: 177 },
             { id: "675054641", name: "[SUN]SayLess", points: 14485152, rank: 180 },
-            { id: "716095876", name: "[INA]MϦTϦ", points: 14454593, rank: 181 },
+            { id: "716095876", name: "[INA]MSTS", points: 14454593, rank: 181 },
             { id: "672158442", name: "[TSM]Boon A", points: 14391634, rank: 182 },
-            { id: "668446611", name: "[SUN]Lev's", points: 14254267, rank: 184 },
+            { id: "668446611", name: "[SUN]Levs", points: 14254267, rank: 184 },
             { id: "672287770", name: "[TMP]Serena", points: 14051847, rank: 187 },
-            { id: "667758036", name: "[SUN]꧁Kan Jeng꧂", points: 13693080, rank: 190 },
+            { id: "667758036", name: "[SUN]Kan Jeng", points: 13693080, rank: 190 },
             { id: "674208502", name: "[SUN]Nabongsh", points: 13556208, rank: 192 },
-            { id: "667467084", name: "[TSM]เผอิญ", points: 13495683, rank: 193 },
+            { id: "667467084", name: "[TSM]Phoein", points: 13495683, rank: 193 },
             { id: "673842922", name: "[TSM]Nada", points: 13383508, rank: 194 },
             { id: "697756907", name: "[TMP]Piglet", points: 13274516, rank: 195 },
             { id: "671552350", name: "[GAS]ATMO", points: 13249555, rank: 197 },
-            { id: "667729180", name: "[INA]blii", points: 13224430, rank: 198 },
+            { id: "667729180", name: "[INA]blii", points: 13224430, rank: 198 }
         ];
 
         function searchMember() {
@@ -308,21 +307,17 @@
             const errorDiv = document.getElementById("error");
             const resultsDiv = document.getElementById("results");
 
-            // Clear previous error
             errorDiv.textContent = "";
 
-            // Validate input
             if (!accountId) {
                 errorDiv.textContent = "Please enter an Account ID";
                 resultsDiv.classList.remove("show");
                 return;
             }
 
-            // Search for member
-            const member = membersList.find(m => m.id.toLowerCase() === accountId.toLowerCase());
+            const member = membersList.find(m => m.id === accountId);
 
             if (member) {
-                // Member found
                 resultsDiv.classList.add("show", "success");
                 resultsDiv.classList.remove("not-found");
                 
@@ -346,7 +341,6 @@
                     </div>
                 `;
             } else {
-                // Member not found
                 resultsDiv.classList.add("show", "not-found");
                 resultsDiv.classList.remove("success");
                 
@@ -359,7 +353,6 @@
             }
         }
 
-        // Allow Enter key to search
         document.getElementById("accountId").addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 searchMember();
